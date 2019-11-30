@@ -4,6 +4,6 @@ class Post < ActiveRecord::Base
   validates :summary, length { maximum: 250 }
   validates :size, inclusion: { in: %w(Fiction Non-Fiction) }
   
-  def validate(record)
-  end 
+  include ActiveModel::Validations
+  validates_with PostValidator
 end
